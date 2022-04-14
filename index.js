@@ -182,9 +182,18 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(arr, num) {
+  const newArr = [];  
+  const numRnd = Math.floor(num);
+    for(let i = 0; i < arr.length; i++) {
+      if(Math.floor(arr[i].rating) === numRnd) {
+        newArr.push(arr[i]);
+      }
+    }
+    return newArr;
   }
+
+  console.log(getReviewByRating(reviews, 4));
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
@@ -200,9 +209,18 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(arr) {
+    const newArr = [];
+    for(let i = 0; i < arr.length; i++) {
+        const feedSplit = arr[i].feedback.split(' ');
+        if(feedSplit.length > 15) {
+          newArr.push(arr[i]);
+        }
+    }
+    return newArr;
   }
+
+  console.log(getLongReviews(reviews));
   
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
@@ -223,10 +241,19 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odr) {
+    const newCar = {
+      odometer: odr,
+      drive: function(distance){
+        this.odometer = this.odometer + distance;
+        return this.odometer;
+      }
+    }
+    return newCar;
 }
+
+const car1 = carMaker(10);
+console.log(car1.drive(100));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
